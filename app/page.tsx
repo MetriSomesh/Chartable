@@ -1,28 +1,11 @@
-import AITools from "./Components/AIToolsSection";
-import Analytics from "./Components/AnalyticsSection";
 
-import Features from "./Components/FeaturesSection";
-import Footer from "./Components/Footer";
-import Hero from "./Components/HeroSection";
-import Nav from "./Components/NavBar";
-import Pricing from "./Components/PricingSection";
-import Testimonials from "./Components/Testimonials";
+import Home from "./Components/Home";
 
 
 
 
-export default function Home() {
+export default function App() {
   return (
-    <div className=" bg-[#171717] ">
-      <Nav />
-      <Hero />
-      <Features />
-      <Analytics />
-      <AITools />
-      <Pricing />
-      <Testimonials />
-      <Footer/>
-      
-    </div>
+   <Home/>
   );
 }
