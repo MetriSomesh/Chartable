@@ -33,7 +33,7 @@ export default function AITools() {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium  text-white">Smart Templates</h4>
-                      <p className="mt-1  text-gray-300">Generate personalized outreach templates based on your podcast's niche and audience.</p>
+                      <p className="mt-1  text-gray-300">Generate personalized outreach templates based on your podcasts niche and audience.</p>
                     </div>
                   </div>
                 </div>

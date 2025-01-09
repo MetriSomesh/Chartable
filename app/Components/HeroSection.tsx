@@ -15,7 +15,7 @@ export default function Hero() {
 
             <p className="animate__animated animate__fadeIn animate__delay-1s mt-6 max-w-2xl mx-auto text-xl text-neutral-300">
               Unlock deep insights into your audience, automate outreach, and
-              scale your podcast's growth with advanced analytics and AI tools.
+              scale your podcasts growth with advanced analytics and AI tools.
             </p>
 
             <div className="animate__animated animate__fadeIn animate__delay-2s mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center gap-4">

@@ -1,6 +1,6 @@
 import AITools from "./Components/AIToolsSection";
 import Analytics from "./Components/AnalyticsSection";
-import FAQ from "./Components/FAQSection";
+
 import Features from "./Components/FeaturesSection";
 import Footer from "./Components/Footer";
 import Hero from "./Components/HeroSection";
@@ -22,7 +22,7 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       <Footer/>
-      {/* <FAQ/> */}
+      
     </div>
   );
 }

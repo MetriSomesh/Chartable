@@ -41,7 +41,7 @@ export default function Analytics() {
               <div className="ml-4">
                 <h3 className="text-lg font-medium text-white">Growth Trends</h3>
                 <p className="mt-2 text-base text-gray-300">
-                  Track your podcast's growth with historical data and predictive analytics.
+                  Track your podcasts growth with historical data and predictive analytics.
                 </p>
               </div>
             </div>

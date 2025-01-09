@@ -13,17 +13,17 @@ export default function FAQ() {
     {
       question: "What analytics features are included in the free tier?",
       answer:
-        "The free tier includes basic listener analytics, download statistics, and simple demographic data. You'll get essential insights to understand your podcast's performance.",
+        "The free tier includes basic listener analytics, download statistics, and simple demographic data. You will get essential insights to understand your podcasts performance.",
     },
     {
       question: "How does the AI-powered outreach system work?",
       answer:
-        "Our AI system analyzes successful outreach patterns and generates personalized templates based on your podcast's niche and target audience. It continuously learns and improves based on engagement rates.",
+        "Our AI system analyzes successful outreach patterns and generates personalized templates based on your podcasts niche and target audience. It continuously learns and improves based on engagement rates.",
     },
     {
       question: "Can I upgrade or downgrade my plan at any time?",
       answer:
-        "Yes, you can change your plan at any time. Changes take effect immediately, and we'll prorate your billing accordingly.",
+        "Yes, you can change your plan at any time. Changes take effect immediately, and we will prorate your billing accordingly.",
     },
     {
       question: "Is there a limit to how many emails I can send?",
