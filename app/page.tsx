@@ -1,28 +1,28 @@
-import Analytics from "./components/AnalyticsDashboard";
-import Attribution from "./components/Attribution";
-import Features from "./components/Features";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Nav from "./components/NavBar";
-import Platfomrs from "./components/Platforms";
-import Pricing from "./components/Pricing";
-import SmartLinks from "./components/SmartLinks";
-import Testimonials from "./components/Testimonials";
+import AITools from "./Components/AIToolsSection";
+import Analytics from "./Components/AnalyticsSection";
+import FAQ from "./Components/FAQSection";
+import Features from "./Components/FeaturesSection";
+import Footer from "./Components/Footer";
+import Hero from "./Components/HeroSection";
+import Nav from "./Components/NavBar";
+import Pricing from "./Components/PricingSection";
+import Testimonials from "./Components/Testimonials";
+
+
 
 
 export default function Home() {
   return (
-    <div>
+    <div className=" bg-[#171717] ">
       <Nav />
       <Hero />
       <Features />
       <Analytics />
-      <SmartLinks />
-      <Attribution />
+      <AITools />
       <Pricing />
       <Testimonials />
-      <Platfomrs />
       <Footer/>
-   </div>
+      {/* <FAQ/> */}
+    </div>
   );
 }
