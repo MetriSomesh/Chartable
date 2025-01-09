@@ -1,15 +1,20 @@
-"use-client"
+"use client";
 
 import { useState } from "react";
 
-export default function FAQ() {
-  const [openFaq, setOpenFaq] = useState(null);
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
-  const toggleFaq = (index:any) => {
+export default function FAQ() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number): void => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const faqItems = [
+  const faqItems: FAQItem[] = [
     {
       question: "What analytics features are included in the free tier?",
       answer:
@@ -59,6 +64,8 @@ export default function FAQ() {
                 <button
                   className="faq-button flex justify-between items-center w-full text-left"
                   onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaq === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
                   <span className="text-lg font-medium text-gray-900 dark:text-white">
                     {item.question}
@@ -70,16 +77,18 @@ export default function FAQ() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="2"
                       d="M19 9l-7 7-7-7"
-                    ></path>
+                    />
                   </svg>
                 </button>
                 <div
+                  id={`faq-answer-${index}`}
                   className={`faq-answer mt-4 ${
                     openFaq === index ? "block" : "hidden"
                   }`}
