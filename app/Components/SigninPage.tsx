@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
 

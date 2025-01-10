@@ -27,7 +27,7 @@ export default function RSSFEED() {
       if (updateRssFeed.status == 200) {
         toast.dismiss(loadingToast);
           toast.success(updateRssFeed.data.msg);
-        //   redirect("/")
+          redirect("/connectspotify")
       } else if (updateRssFeed.status == 400) {
         toast.dismiss(loadingToast);
         toast.error(updateRssFeed.data.msg);
@@ -36,6 +36,7 @@ export default function RSSFEED() {
         toast.error(updateRssFeed.data.msg);
       }
     } catch (error) {
+        console.log("Error Occured: ",error)
       toast.dismiss(loadingToast);
       toast.error("Something Went Wrong");
     }
@@ -58,7 +59,7 @@ export default function RSSFEED() {
               Add Your RSS Feed
             </h2>
             <p className="text-neutral-400">
-              Enter your podcast's RSS feed URL to get started with analytics
+              Enter your podcast&#39s RSS feed URL to get started with analytics
             </p>
           </div>
 

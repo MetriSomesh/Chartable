@@ -7,7 +7,7 @@ const SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize";
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!;
 const REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI!;
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     // Check if user is authenticated
     const session = await getServerSession(NEXT_AUTH);
