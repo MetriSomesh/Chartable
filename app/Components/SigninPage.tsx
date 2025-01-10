@@ -8,8 +8,6 @@ import { signIn } from "next-auth/react";
 
 export default function SignIn() {
   const router = useRouter();
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -131,7 +129,7 @@ export default function SignIn() {
               Email
             </label>
             <input
-              ref={emailRef}
+            
               type="email"
               id="email"
               name="email"
@@ -154,7 +152,7 @@ export default function SignIn() {
             </label>
             <div className="relative">
               <input
-                ref={passwordRef}
+              
                 type={isPasswordVisible ? "text" : "password"}
                 id="password"
                 name="password"

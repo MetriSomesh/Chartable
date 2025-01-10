@@ -17,4 +17,12 @@ model User{
   id Int @id @default(autoincrement())
   email String @unique
   password String
+  firstName String
+  lastname String
+  RSSFeed String @unique
+  spotifyId String?
+  accessToken String?
+  refreshToken String?
+  tokenExpiry  DateTime?
+
 }

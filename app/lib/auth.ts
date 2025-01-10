@@ -41,6 +41,10 @@ export const NEXT_AUTH: NextAuthOptions = {
               data: {
                 email: credentials.email,
                 password: hashedPassword,
+                firstName: "",
+                lastname: "",
+                RSSFeed: "",
+                
               },
             });
              return {
@@ -121,7 +125,10 @@ export const NEXT_AUTH: NextAuthOptions = {
             existingUser = await prisma.user.create({
               data: {
                 email: user.email,
-                password:hashedPassword
+                password: hashedPassword,
+                firstName: "",
+                lastname: "",
+                RSSFeed:"",
               }
             })
           }

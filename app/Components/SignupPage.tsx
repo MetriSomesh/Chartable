@@ -112,7 +112,7 @@ export default function SignUp() {
           handleAuthError();
         } else {
           toast.success("Account created successfully!");
-          router.push("/chat");
+          router.push("/rssfeedsetup");
         }
       }
     } catch (error:unknown) {
@@ -151,7 +151,7 @@ export default function SignUp() {
         toast.loading("Please Wait");
 
     signIn("google", {
-      callbackUrl: "/",
+      callbackUrl: "/rssfeedsetup",
     })
       .then(() => {
         console.log("Google sign-in initiated.");
