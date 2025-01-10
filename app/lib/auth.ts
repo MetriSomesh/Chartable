@@ -1,9 +1,8 @@
 import CredentialsProviders from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import  prisma  from "../db/index";
-import { NextAuthOptions } from "next-auth";
-import { User as NextAuthUser } from "next-auth";
-
+import  { NextAuthOptions } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
 
 export const NEXT_AUTH: NextAuthOptions = {
@@ -44,6 +43,11 @@ export const NEXT_AUTH: NextAuthOptions = {
                 password: hashedPassword,
               },
             });
+             return {
+               id: user!.id.toString(),
+               email: user!.email,
+               name: "",
+             };
           }
 
           // Validate password for existing users
@@ -57,7 +61,11 @@ export const NEXT_AUTH: NextAuthOptions = {
           }
 
           // Return user ID and email if authorization is successful
-          return { id: user.id.toString(), email: user.email } as NextAuthUser;
+           return {
+             id: user!.id.toString(),
+             email: user!.email,
+             name: user.email.split("@")[0],
+           };
         } catch (error) {
           console.error("Error during authorization: ", error);
           return null;
@@ -66,35 +74,75 @@ export const NEXT_AUTH: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+      httpOptions: {
+        timeout:10000
+      }
+    })
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn:"/signin"
+  },
   callbacks: {
-    async session({ session, token }) {
-      if (token && token.id && token.email) {
-          session.user = {
-              id: token.id.toString(),
-              email:token.email.toString()
+    // async session({ session, token }) {
+    //   if (token && token.id && token.email) {
+    //       session.user = {
+    //           id: token.id.toString(),
+    //           email:token.email.toString()
+    //     }
+    //   }
+    //   return session;
+    // },
+    // async jwt({ token, user }) {
+    //   if (user) {
+    //     token.id = user.id;
+    //     token.email = user.email;
+    //   }
+    //   return token;
+    // },
+    // async redirect({ url, baseUrl }) {
+    //   // Redirect to /connectaccount after signup
+    //   return url === "/signin" ? `${baseUrl}/connectaccount` : url;
+    // },
+
+    async signIn({ user, account }) {
+      if (account!.provider === "google" && user.email) {
+        try {
+      
+            let existingUser = await prisma.user.findUnique({
+              where:{email: user.email}
+            })
+          
+          if (!existingUser) {
+            const hashedPassword = await bcrypt.hash(user.email, 10);
+            existingUser = await prisma.user.create({
+              data: {
+                email: user.email,
+                password:hashedPassword
+              }
+            })
+          }
+          return true;
+        } catch (error) {
+           console.error("Error creating user in the database:", error);
+           return false;
         }
       }
-      return session;
+      return true;
     },
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.email = user.email;
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.sub?.toString()||"";
       }
-      return token;
-    },
-    async redirect({ url, baseUrl }) {
-      // Redirect to /connectaccount after signup
-      return url === "/signin" ? `${baseUrl}/connectaccount` : url;
-    },
+      return session;
+    }
   },
-  pages: {
-    signIn: "/signin",
-    newUser: "/connectaccount",
-  },
+ 
 };
+
 // import { PrismaClient } from "@prisma/client";
 // import { NextAuthOptions } from "next-auth";
 // import GoogleProvider from "next-auth/providers/google";

@@ -1,11 +1,6 @@
 
-import Home from "./Components/Home";
-
-
-
-
-export default function App() {
-  return (
-   <Home/>
-  );
+import Home from "./Components/landing/Home";
+export default async function App() {
+   
+  return <Home />;
 }
