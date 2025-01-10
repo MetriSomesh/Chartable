@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export default function SignUp() {
   const router = useRouter();
@@ -115,8 +115,13 @@ export default function SignUp() {
           router.push("/chat");
         }
       }
-    } catch (error: any) {
-      handleAuthError(error.response?.status);
+    } catch (error:unknown) {
+      if (error instanceof AxiosError) {
+        handleAuthError(error.response?.status);
+      } else {
+        // Handle non-Axios errors or fallback
+        console.error("An unexpected error occurred:", error);
+      }
     } finally {
       toast.dismiss(loadingToast);
       setIsLoading(false);
@@ -404,7 +409,7 @@ export default function SignUp() {
           </div>
 
           <div className="mt-6 text-center text-sm text-gray-400">
-            By continuing, you agree to PodPulse's
+            By continuing, you agree to PodPulse&#39s
             <a
               href="#"
               className="text-indigo-400 hover:text-indigo-300"

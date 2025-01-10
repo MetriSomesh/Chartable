@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth"
 import { NEXT_AUTH } from "../lib/auth"
 import SignIn from "../Components/SigninPage";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 
 const Signin = async () => {

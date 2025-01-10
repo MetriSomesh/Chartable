@@ -69,6 +69,7 @@ export default function SignIn() {
         handleAuthError(result.status);
       }
     } catch (error) {
+      console.log(error);
       toast.error("An unexpected error occurred");
     } finally {
       toast.dismiss(loadingToast);
@@ -240,7 +241,7 @@ export default function SignIn() {
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-400">
-          Don't have an account?{" "}
+          Don&#39;t have an account?{" "}
           <Link
             href="/signup"
             className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors duration-200"
@@ -266,7 +267,10 @@ export default function SignIn() {
           </div>
 
           <div className="grid grid-cols-1 gap-4 animate-fadeInUp">
-            <button className="flex items-center justify-center w-full px-4 py-3 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg border border-neutral-600 transition-colors" onClick={handleGoogleClick}>
+            <button
+              className="flex items-center justify-center w-full px-4 py-3 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg border border-neutral-600 transition-colors"
+              onClick={handleGoogleClick}
+            >
               <svg
                 className="w-5 h-5 mr-3"
                 viewBox="0 0 24 24"
@@ -294,7 +298,7 @@ export default function SignIn() {
           </div>
 
           <div className="mt-6 text-center text-sm text-gray-400">
-            By continuing, you agree to PodPulse's
+            By continuing, you agree to PodPulse&#39s
             <a
               href="#"
               className="text-indigo-400 hover:text-indigo-300"

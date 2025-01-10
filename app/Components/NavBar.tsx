@@ -1,14 +1,7 @@
-import { getServerSession } from "next-auth";
-import { NEXT_AUTH } from "../lib/auth";
-import { signOut } from "next-auth/react";
+
 import SignButton from "./landing/SignButton";
 
 export default async function Nav() {
-  const session = await getServerSession(NEXT_AUTH);
-  if (session?.user) {
-    // redirect("/");
-    console.log(session);
-  }
   return (
     <nav
       id="Navbar"
