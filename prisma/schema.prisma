@@ -20,6 +20,7 @@ model User{
   firstName String
   lastname String
   RSSFeed String @unique
+  showName String? @default("")
   spotifyId String?
   accessToken String?
   refreshToken String?
