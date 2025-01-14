@@ -19,7 +19,7 @@ model User{
   password String
   firstName String
   lastname String
-  RSSFeed String @unique
+  RSSFeed String @unique @default("")
   showName String? @default("")
   spotifyId String?
   accessToken String?
