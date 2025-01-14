@@ -45,3 +45,12 @@
 // };
 
 // export default Dash;
+
+
+const Dash = () => {
+  return (
+    <div>
+      hi
+    </div>
+  );
+ }
