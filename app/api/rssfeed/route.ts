@@ -277,6 +277,7 @@ export async function parseRSSFeed(
     try {
       new URL(feedUrl); // Throws error if URL is invalid
     } catch (error) {
+      console.log(error);
       return { error: "Invalid RSS feed URL" };
     }
 
@@ -393,7 +394,7 @@ export async function POST(req: NextRequest) {
         showName: parsedRSS.feed?.title,
       },
     });
-
+    console.log(updateRssFeed);
     return NextResponse.json({ msg: "RSS Feed Updated" }, { status: 200 });
   } catch (error) {
     console.error("Error updating RSS Feed:", error);
