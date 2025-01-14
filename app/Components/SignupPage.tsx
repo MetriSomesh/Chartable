@@ -112,7 +112,7 @@ export default function SignUp() {
           handleAuthError();
         } else {
           toast.success("Account created successfully!");
-          router.push("/rssfeedsetup");
+          router.push("/connectspotify");
         }
       }
     } catch (error:unknown) {
