@@ -4,6 +4,8 @@
 // // import { NextRequest, NextResponse } from "next/server";
 // // import Parser from "rss-parser";
 
+import { NextResponse } from "next/server";
+
 // // type CustomFeedItem = {
 // //   title: string;
 // //   link: string;
@@ -404,3 +406,10 @@
 //     );
 //   }
 // }
+
+
+export async function POST() {
+  // Your function code here
+
+  return NextResponse.json({msg:"Hello"})
+}
