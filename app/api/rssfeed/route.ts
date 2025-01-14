@@ -138,7 +138,7 @@ function normalizeDuration(duration?: string): string | undefined {
   // Handle HH:MM:SS format
   const timeMatch = duration.match(/(\d+):(\d+):(\d+)/);
   if (timeMatch) {
-    const [_, hours, minutes, seconds] = timeMatch;
+    const [ hours, minutes, seconds] = timeMatch;
     return String(
       Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds)
     );
@@ -147,7 +147,7 @@ function normalizeDuration(duration?: string): string | undefined {
   // Handle MM:SS format
   const shortTimeMatch = duration.match(/(\d+):(\d+)/);
   if (shortTimeMatch) {
-    const [_, minutes, seconds] = shortTimeMatch;
+    const [, minutes, seconds] = shortTimeMatch;
     return String(Number(minutes) * 60 + Number(seconds));
   }
 
