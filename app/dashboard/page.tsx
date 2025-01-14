@@ -53,4 +53,7 @@ const Dash = () => {
       hi
     </div>
   );
- }
+}
+ export default Dash;
+
+
