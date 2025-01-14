@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 const SignupPage = async () => {
     const session = await getServerSession(NEXT_AUTH);
     if (session?.user) {
-        redirect("/rssfeedsetup");
+        redirect("/connectspotify");
         
     }
     return (
