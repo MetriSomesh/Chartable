@@ -439,7 +439,7 @@ export async function POST(req: NextRequest) {
     const body: RequestBody = await req.json();
     // const { timeRange = "30days" } = body;
 
-    
+    console.log(body);
 
     // Get user session
     const session = await getServerSession(NEXT_AUTH);
