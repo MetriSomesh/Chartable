@@ -21,7 +21,7 @@ export default function Hero() {
             <div className="animate__animated animate__fadeIn animate__delay-2s mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center gap-4">
               <div className="rounded-md shadow">
                 <a
-                  href="#PricingPlans"
+                  href="signup"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                 >
                   Get Started
@@ -29,7 +29,7 @@ export default function Hero() {
               </div>
               <div className="mt-3 rounded-md shadow sm:mt-0">
                 <a
-                  href="#Features"
+                  href="/signin"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-neutral-50 md:py-4 md:text-lg md:px-10"
                 >
                   Learn More

@@ -3,13 +3,14 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
 import axios from "axios";
-import { redirect } from "next/navigation";
+import {  useRouter } from "next/navigation";
 
 export default function RSSFEED() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rssFeed, setRssFeed] = useState("");
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const router = useRouter();
 
   async function handleSubmit() {
     if (!rssFeed) {
@@ -24,13 +25,14 @@ export default function RSSFEED() {
         rssFeed: rssFeed,
       });
 
+
       if (updateRssFeed.status == 200) {
         toast.dismiss(loadingToast);
-          toast.success(updateRssFeed.data.msg);
-          redirect("/connectspotify")
+          toast.success("RSSFeed Added!");
+          router.push("/connectspotify")
       } else if (updateRssFeed.status == 400) {
         toast.dismiss(loadingToast);
-        toast.error(updateRssFeed.data.msg);
+        toast.error("Invalid RSSFEED");
       } else if (updateRssFeed.status == 403) {
         toast.dismiss(loadingToast);
         toast.error(updateRssFeed.data.msg);
@@ -38,7 +40,7 @@ export default function RSSFEED() {
     } catch (error) {
         console.log("Error Occured: ",error)
       toast.dismiss(loadingToast);
-      toast.error("Something Went Wrong");
+      toast.error("Invalid RSSFeed Provided!");
     }
   }
 

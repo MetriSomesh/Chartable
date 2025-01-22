@@ -4,9 +4,6 @@
 import { JSX, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import BasicAnalytics from "../Components/BasicAnalytics";
-import ListningPattern from "../Components/ListeningPattern";
-import OtherAnalytics from "../Components/OtherAnalytics";
 
 interface NavItem {
   href: string;
@@ -275,9 +272,7 @@ export default function DashboardLayout({
             </div>
           </div>
         </header>
-        <BasicAnalytics />
-        <ListningPattern />
-        {/* <OtherAnalytics/> */}
+        {children}
       </main>
     </div>
   );

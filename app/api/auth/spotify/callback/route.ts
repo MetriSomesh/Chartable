@@ -20,6 +20,8 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    const headers = req.headers;
+    console.log("THE HEADERS FOR THE REQUEST IS : ", headers);
     // Exchange the authorization code for access token
     const basicAuth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
       "base64"
