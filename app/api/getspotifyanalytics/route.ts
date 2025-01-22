@@ -264,6 +264,20 @@ type EpisodeAnalytics = {
   peakListeners: number;
 };
 
+interface SpotifyEpisode {
+  id: string;
+  name: string;
+  description: string;
+  duration_ms: number;
+  release_date: string;
+}
+
+
+
+
+
+
+
 async function refreshAccessToken(refreshToken: string) {
   const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!;
   const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!;
@@ -470,7 +484,7 @@ export async function POST(req: NextRequest) {
     ]);
 
     // Process episodes with analytics
-    const processedEpisodes = episodes.items.map((episode:any) => {
+    const processedEpisodes = episodes.items.map((episode: SpotifyEpisode) => {
       // const episodeAnalytics =
       //   analytics.episodes?.find((a: any) => a.id === episode.id) || {};
 
