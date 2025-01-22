@@ -1,4 +1,3 @@
-// app/components/DashboardLayout.tsx
 "use client";
 
 import { JSX, useState } from "react";
@@ -14,11 +13,7 @@ interface NavItem {
   label: string;
 }
 
-export default function DashboardLayout({
-  
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("overview");
 
