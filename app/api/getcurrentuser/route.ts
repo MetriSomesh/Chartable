@@ -6,9 +6,9 @@ import prisma from "@/app/db";
 
 const SPOTIFY_GETCURRENTUSER =
   "https://creators.spotify.com/pod/api/currentuser";
-const SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token";
-const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!;
-const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!;
+// const SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token";
+// const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!;
+// const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!;
 
 export async function GET() {
   try {
