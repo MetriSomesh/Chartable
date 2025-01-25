@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 
-const fetchSpotifyUserData = async (
+export async function GET (
   req: NextApiRequest,
   res: NextApiResponse
-) => {
+){
   try {
     // Make the request from the server to Spotify API
     const response = await axios.get(
@@ -32,4 +32,3 @@ const fetchSpotifyUserData = async (
   }
 };
 
-export default fetchSpotifyUserData;
